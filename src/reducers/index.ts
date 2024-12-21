@@ -1,7 +1,9 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
+import statusReducer from './statusReducer';
 // import { composeWithDevTools } from "redux-devtools-extension";
 // import thunk from "redux-thunk";
 import testReducer from './testReducer';
+import userReducer from './userReducer';
 // import fileReducer from './fileReducer';
 // import uploadReducer from './uploadReducer';
 // import appReducer from './appReducer';
@@ -9,6 +11,8 @@ import testReducer from './testReducer';
 //ниже создадим непосредственно сам корневой редьюсер 
 const rootReducer = combineReducers({
     test: testReducer,
+    // user: userReducer,
+    status: statusReducer
     // files: fileReducer,
     // upload: uploadReducer,
     // app: appReducer
@@ -22,7 +26,7 @@ export const store = createStore(rootReducer)
 
 export type RootState = ReturnType<typeof rootReducer>
 
-
+console.log("type = ",typeof rootReducer)
 
 
 // //внитри ф-ии setupStore мы будем конфигурировать наше redux хранилище. Без использования toolkit 
