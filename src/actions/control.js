@@ -25,7 +25,8 @@ export const control = async (url, key, value) => {
             // res2 = JSON.parse(res2)
             // let token = JSON.parse(res2).token
             // console.log("token =",token)
-            console.log("response =",res2)
+            console.log("response control =",res2)
+            return res2;
             // store.dispatch(setLoading(false))
             // if(res2.permission){
             //     console.log("here")

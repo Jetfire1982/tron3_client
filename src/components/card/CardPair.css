@@ -17,9 +17,21 @@
 }
 
 .card-my__button-target{
-    padding-left: 15px;
-    padding-right: 1px;
-    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+    /* padding-top: -17px; */
+    /* padding-bottom: 15px; */
     height: 28px;
     color: black;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.card-my__img-target{
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: auto;
+
 }

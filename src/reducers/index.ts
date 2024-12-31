@@ -10,9 +10,10 @@ import userReducer from './userReducer';
 
 //ниже создадим непосредственно сам корневой редьюсер 
 const rootReducer = combineReducers({
+    status: statusReducer,
     test: testReducer,
     // user: userReducer,
-    status: statusReducer
+   
     // files: fileReducer,
     // upload: uploadReducer,
     // app: appReducer
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
 
 // export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 export const store = createStore(rootReducer)
+
 
 
 export type RootState = ReturnType<typeof rootReducer>

@@ -44,21 +44,22 @@ const Page1 = () => {
     console.log("checked =",e.target.checked)
     // control("/control", e.target.dataset.control, e.target.checked)
     // setTes(!tes)
-    control("/control", e.target.dataset.control, e.target.checked)
-    switch (e.target.dataset.control) {
-      case "server_start_stop":
-        console.log("CASE server_start_stop")  
-        store.dispatch(setServerStartStop(!server_start_stop))
-        break;
-      case "test1":
-        console.log("CASE test1")
-        store.dispatch(setTest1(!test1));
-        break; 
-      case "test2":
-        console.log("CASE test2")
-        store.dispatch(setTest2(!test2))
-        break;
-    }
+    control("/control", e.target.dataset.control, e.target.checked).then(ans=>{
+      switch (Object.keys(ans)[0]) {
+        case "server_start_stop":
+          console.log("CASE server_start_stop")  
+          store.dispatch(setServerStartStop(!server_start_stop))
+          break;
+        case "test1":
+          console.log("CASE test1")
+          store.dispatch(setTest1(!test1));
+          break; 
+        case "test2":
+          console.log("CASE test2")
+          store.dispatch(setTest2(!test2))
+          break;
+      }
+    }) 
   }
 
   let testCheckBoxB = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -89,11 +90,15 @@ const Page1 = () => {
     console.log("checked =",e.target.checked)
     store.dispatch(setTest1(!test1))
   }
+
+ 
  
 
   
   let pairs: Array<keyof Prices> = ["AUDCAD","AUDCHF","AUDJPY","AUDNZD","AUDUSD","CADCHF","CADJPY","CHFJPY","EURAUD","EURCAD","EURCHF","EURGBP","EURJPY","EURNZD","EURUSD","GBPAUD","GBPCAD","GBPCHF","GBPJPY","GBPNZD","GBPUSD","NZDCAD","NZDCHF","NZDJPY","NZDUSD","USDCAD","USDCHF","USDJPY"]
   
+
+
   return (
     <>
       <div className="uk-flex  uk-flex-wrap uk-flex-left  card-all-my" style={{border: '1px solid red'}}>
@@ -117,6 +122,7 @@ const Page1 = () => {
         </fieldset>
       </form>
       
+    
     </>
   );
 };
